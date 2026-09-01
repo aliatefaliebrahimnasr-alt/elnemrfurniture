@@ -71,6 +71,62 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 
 
 
+
+/* ===== Custom El Nemr Logo ===== */
+.brandmark{
+  width:68px;height:68px;
+  border-radius:50%;
+  padding:3px;
+  background:#fff;
+  border:2px solid #d6a34b;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(94,54,19,.20);
+}
+.brandmark img{
+  width:100%;height:100%;
+  object-fit:contain;
+  border-radius:50%;
+}
+@media(max-width:620px){
+  .brandmark{width:56px;height:56px;padding:2px}
+}
+
+
+/* ===== ALL LOGOS REPLACED ===== */
+.footerLogoTitle{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.footerLogoImg{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid #d1a14d;
+  padding:2px;
+}
+.pillLogoImg{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  padding:1px;
+  flex:none;
+}
+.inlineLogoImg{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #d3a24d;
+  padding:1px;
+  vertical-align:middle;
+}
+
 </style>
 </head>
 <body>
@@ -82,14 +138,14 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 </div>
 <nav class="nav">
   <div class="container navin">
-    <a href="#" class="brand"><div class="brandmark">🐯</div><div><h1 id="brandName">ورشة النمر</h1><small>للأثاث المنزلي</small></div></a>
+    <a href="#" class="brand"><div class="brandmark"><img src="assets/elnemr-logo.png" alt="شعار ورشة النمر"></div><div><h1 id="brandName">ورشة النمر</h1><small>للأثاث المنزلي</small></div></a>
     <div class="links" id="links"><a href="#home">الرئيسية</a><a href="#categories">الأقسام</a><a href="#products">المنتجات</a><a href="#custom">تفصيل حسب الطلب</a><a href="#contact">تواصل معنا</a></div>
     <div class="navicons"><button class="circle cartBtn" onclick="openCart()">🛒<span class="count" id="cartCount">0</span></button><button class="circle menu" onclick="toggleMenu()">☰</button></div>
   </div>
 </nav>
 <header class="hero" id="home">
   <div class="container"><div class="heroContent">
-    <div class="pill">🐯 أثاث مصري بتشطيب مميز</div>
+    <div class="pill"><img class="pillLogoImg" src="assets/elnemr-logo.png" alt=""> أثاث مصري بتشطيب مميز</div>
     <h2 id="heroTitle">جودة النمر<br><span>تصنع الفرق</span></h2>
     <p id="heroSubtitle">نصمم وننفذ أثاث منزلي بخامات مختارة بعناية مع تنفيذ المقاسات والتصميم حسب طلبك.</p>
     <div class="actions"><a class="btn primary" id="heroWa" href="#" target="_blank">💬 اطلب تصميمك الآن</a><a class="btn outline" href="#categories">استعرض الأقسام</a></div>
@@ -118,7 +174,7 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 
 <footer class="footer" id="contact"><div class="container">
   <div class="footerGrid">
-    <div><h3>🐯 <span id="footerName">ورشة النمر</span></h3><p id="footerAbout">متخصصون في تنفيذ الأثاث المنزلي والتفصيل حسب الطلب.</p></div>
+    <div><h3 class="footerLogoTitle"><img class="footerLogoImg" src="assets/elnemr-logo.png" alt="شعار ورشة النمر"><span id="footerName">ورشة النمر</span></h3><p id="footerAbout">متخصصون في تنفيذ الأثاث المنزلي والتفصيل حسب الطلب.</p></div>
     <div><h4>الأقسام</h4><ul id="footerCategories"></ul></div>
     <div><h4>روابط سريعة</h4><ul><li><a href="#home">الرئيسية</a></li><li><a href="#categories">الأقسام</a></li><li><a href="#products">المنتجات</a></li><li><a href="#custom">تفصيل حسب الطلب</a></li></ul></div>
     <div><h4>تواصل معنا</h4><ul><li id="footerPhone">📞 —</li><li id="footerWa">💬 —</li><li id="footerAddress">📍 —</li><li id="footerHours">🕒 —</li></ul></div>
