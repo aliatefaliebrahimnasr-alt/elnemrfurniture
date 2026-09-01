@@ -29,6 +29,46 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 .toast{position:fixed;right:18px;bottom:20px;background:var(--brown);color:#fff;padding:11px 16px;border-radius:10px;z-index:200;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:none}
 @media(max-width:980px){.links{position:absolute;top:80px;right:14px;left:14px;background:#fff;border-radius:15px;padding:10px;box-shadow:var(--shadow);display:none;flex-direction:column;gap:0}.links.show{display:flex}.links a{padding:10px}.menu{display:grid}.hero{min-height:540px}.featureGrid{grid-template-columns:repeat(2,1fr)}.categoryGrid,.products{grid-template-columns:repeat(2,1fr)}.footerGrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.top .container{justify-content:center;padding:6px 0}.brand h1{font-size:19px}.brandmark{width:48px;height:48px}.navicons .circle:not(.menu):not(.cartBtn){display:none}.hero h2{font-size:43px}.hero p{font-size:16px}.actions .btn{width:100%}section{padding:55px 0}.feature{padding:20px 7px}.categoryGrid,.products{grid-template-columns:1fr}.catCard img,.card img{height:235px}.footerGrid{grid-template-columns:1fr}.formGrid{grid-template-columns:1fr}.field.full{grid-column:auto}.customText{padding:30px 22px}}
+
+/* وصف المنتج المنفصل */
+.cardActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}
+.detailsBtn{border:1px solid var(--line);background:#fff;color:var(--brown);border-radius:9px;padding:8px 10px;font-weight:900;cursor:pointer}
+.detailsBtn:hover{background:#f8f1e7}
+.cardBottom{margin-top:10px}
+.productDetailsBox{width:min(900px,100%);padding:0;max-height:94vh;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable}
+.productDetailsGrid{display:grid;grid-template-columns:1.05fr 1fr;align-items:start;min-height:420px}
+.productDetailsImage{background:#f4eee6;min-height:420px}
+.productDetailsImage img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.productDetailsContent{padding:28px;display:flex;flex-direction:column;min-width:0}
+.productDetailsContent .categoryName{display:inline-flex;align-self:flex-start;background:#fbf1e2;color:#9b641e;border:1px solid #ead2ad;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:900;margin-bottom:10px}
+.productDetailsContent h2{margin:0;color:var(--brown);font-size:29px;line-height:1.35}
+.productDetailsPrice{font-size:23px;font-weight:900;color:var(--gold);margin:10px 0 18px}
+.productDetailsPrice small{font-size:12px;color:#9b918a;text-decoration:line-through;margin-right:7px}
+.productDescriptionSection{border-top:1px solid var(--line);padding-top:17px;margin-top:2px}
+.productDescriptionSection h4{margin:0 0 8px;color:var(--brown);font-size:15px}
+.productDescriptionText{margin:0;color:#62564f;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:2;font-size:14px;max-height:none;overflow:visible}
+.productDetailsActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:22px}
+.productDetailsActions .btn{width:100%}
+.productWaBtn{background:#25D366;color:#fff}
+@media(max-width:720px){
+ .productDetailsGrid{grid-template-columns:1fr}
+ .productDetailsImage,.productDetailsImage img{min-height:260px;height:260px}
+ .productDetailsContent{padding:20px}
+ .productDetailsContent h2{font-size:24px}
+ .productDetailsActions{grid-template-columns:1fr}
+}
+
+
+@media(min-width:721px){
+ .productDetailsImage{position:sticky;top:0;align-self:start;height:94vh;max-height:700px}
+ .productDetailsImage img{height:100%;min-height:420px;object-fit:cover}
+}
+@media(max-width:720px){
+ .productDetailsBox{max-height:96vh;overflow-y:auto}
+ .productDetailsGrid{min-height:0}
+ .productDescriptionText{font-size:14px;line-height:2.05}
+}
+
 </style>
 </head>
 <body>
@@ -66,7 +106,7 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 </div></section>
 
 <section id="products" style="background:#fff"><div class="container">
-  <div class="head"><div class="eyebrow">منتجاتنا</div><h2>أحدث أعمال ورشة النمر</h2><p>المنتجات تتحدث تلقائيًا من لوحة الإدارة.</p></div>
+  <div class="head"><div class="eyebrow">منتجاتنا</div><h2>أحدث أعمال ورشة النمر</h2><p></p></div>
   <div class="categoryTabs" id="tabs"><button class="tab active" data-category="all">الكل</button></div>
   <div class="toolbar"><div class="search">🔎 <input id="searchInput" placeholder="ابحث عن منتج..." oninput="renderProducts()"></div><span class="resultCount" id="resultCount"></span></div>
   <div class="products" id="productGrid"><div class="empty">جاري تحميل المنتجات من Firebase...</div></div>
@@ -89,6 +129,35 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
   <div class="drawer"><div class="drawerHead"><h3>🛒 سلة الطلب</h3><button class="close" onclick="closeCart()">✕</button></div>
     <div class="cartItems" id="cartItems"></div>
     <div class="drawerFoot"><button class="btn primary" onclick="openCheckout()">إتمام الطلب</button></div>
+  </div>
+</div>
+
+
+<div class="modal" id="productDetailsModal" onclick="if(event.target===this) closeProductDetails()">
+  <div class="modalBox productDetailsBox">
+    <div class="productDetailsGrid">
+      <div class="productDetailsImage">
+        <img id="detailImage" src="" alt="صورة المنتج">
+      </div>
+      <div class="productDetailsContent">
+        <div class="modalTop" style="margin-bottom:8px">
+          <span class="categoryName" id="detailCategory">المنتج</span>
+          <button class="close" onclick="closeProductDetails()">✕</button>
+        </div>
+        <h2 id="detailName">اسم المنتج</h2>
+        <div class="productDetailsPrice" id="detailPrice"></div>
+
+        <div class="productDescriptionSection">
+          <h4>وصف المنتج</h4>
+          <p class="productDescriptionText" id="detailDescription">لا يوجد وصف لهذا المنتج.</p>
+        </div>
+
+        <div class="productDetailsActions">
+          <button class="btn primary" id="detailAddBtn">🛒 أضف للسلة</button>
+          <a class="btn productWaBtn" id="detailWaBtn" href="#" target="_blank">💬 استفسر على واتساب</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -160,11 +229,41 @@ function renderProducts(){
  if(!list.length){$('productGrid').innerHTML='<div class="empty">لا توجد منتجات مطابقة.</div>';return}
  $('productGrid').innerHTML=list.map(p=>`<article class="card">
   <button class="fav" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
-  <img src="${safeImg(p.image)}" alt="${esc(p.name)}" onerror="this.src='${DEFAULT_IMG}'">
-  <div class="cardBody"><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description||'تفصيل وتشطيب حسب الطلب')}</p>
-  <div class="cardBottom"><div class="price">${money(p.price)}${p.oldPrice?` <small>${money(p.oldPrice)}</small>`:''}</div><button class="miniBtn" onclick="addToCart('${p.id}')">أضف للسلة</button></div></div>
+  <img src="${safeImg(p.image)}" alt="${esc(p.name)}" onerror="this.src='${DEFAULT_IMG}'" onclick="openProductDetails('${p.id}')" style="cursor:pointer">
+  <div class="cardBody">
+    <h3>${esc(p.name)}</h3>
+    <div class="cardBottom"><div class="price">${money(p.price)}${p.oldPrice?` <small>${money(p.oldPrice)}</small>`:''}</div></div>
+    <div class="cardActions">
+      <button class="detailsBtn" onclick="openProductDetails('${p.id}')">عرض التفاصيل</button>
+      <button class="miniBtn" onclick="addToCart('${p.id}')">أضف للسلة</button>
+    </div>
+  </div>
  </article>`).join('')
 }
+
+function categoryNameById(id){
+ const c=categories.find(x=>x.id===id);
+ return c?.name||'منتجات ورشة النمر';
+}
+function openProductDetails(id){
+ const p=products.find(x=>x.id===id);
+ if(!p)return;
+ $('detailImage').src=safeImg(p.image);
+ $('detailImage').alt=p.name||'صورة المنتج';
+ $('detailName').textContent=p.name||'منتج';
+ $('detailCategory').textContent=categoryNameById(p.categoryId);
+ $('detailDescription').textContent=(p.description||'لا يوجد وصف مضاف لهذا المنتج حاليًا.').trim();
+ $('detailPrice').innerHTML=money(p.price)+(p.oldPrice?` <small>${money(p.oldPrice)}</small>`:'');
+ $('detailAddBtn').onclick=()=>{addToCart(id);closeProductDetails();};
+ $('detailWaBtn').href=waLink(`السلام عليكم، أريد الاستفسار عن المنتج: ${p.name||'منتج'}`);
+ $('productDetailsModal').classList.add('show');
+ document.body.style.overflow='hidden';
+}
+function closeProductDetails(){
+ $('productDetailsModal').classList.remove('show');
+ document.body.style.overflow='';
+}
+
 function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;const found=cart.find(x=>x.id===id);if(found)found.qty++;else cart.push({id:p.id,name:p.name,price:p.price||'',image:p.image||'',qty:1});saveCart();toast('تمت الإضافة للسلة')}
 function saveCart(){localStorage.setItem('elnemr_cart',JSON.stringify(cart));$('cartCount').textContent=cart.reduce((a,b)=>a+(b.qty||1),0);renderCart()}
 function renderCart(){
@@ -184,6 +283,13 @@ $('checkoutForm').addEventListener('submit',async e=>{
   const msg=`طلب جديد من الموقع\nرقم الطلب: ${ref.key}\nالاسم: ${order.name}\nالموبايل: ${order.phone}\nالعنوان: ${order.address}\n\nالمنتجات:\n${lines}\n\nملاحظات: ${order.notes||'لا يوجد'}`;
   cart=[];saveCart();closeCheckout();$('checkoutForm').reset();toast('تم تسجيل الطلب بنجاح');const w=waLink(msg);if(w!=='#')window.open(w,'_blank');
  }catch(err){console.error(err);toast('تعذر تسجيل الطلب. راجع قواعد Firebase.')}
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){
+  closeProductDetails();
+  closeCheckout();
+  closeCart();
+ }
 });
 saveCart();applySettings();
 </script>
