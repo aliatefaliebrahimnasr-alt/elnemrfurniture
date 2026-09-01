@@ -98,6 +98,39 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 }
 @media(max-width:620px){.brandmark{width:56px;height:56px;padding:2px}}
 
+
+/* ===== Category WhatsApp CTA ===== */
+.catBody{
+  padding:15px;
+  display:block;
+}
+.catBody h3{
+  margin:0 0 11px;
+  font-size:18px;
+  text-align:center;
+}
+.categoryWaBtn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  border:0;
+  border-radius:10px;
+  padding:10px 12px;
+  background:#25D366;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 7px 18px rgba(37,211,102,.20);
+  transition:.2s;
+}
+.categoryWaBtn:hover{
+  transform:translateY(-2px);
+  filter:brightness(.96);
+}
+.catCard{cursor:default}
+
 </style>
 </head>
 <body>
@@ -136,7 +169,7 @@ section{padding:76px 0}.head{text-align:center;margin-bottom:35px}.head .eyebrow
 </div></section>
 
 <section id="products" style="background:#fff"><div class="container">
-  <div class="head"><div class="eyebrow">منتجاتنا</div><h2>أحدث أعمال ورشة النمر</h2><p>المنتجات تتحدث تلقائيًا من لوحة الإدارة.</p></div>
+  <div class="head"><div class="eyebrow">منتجاتنا</div><h2>أحدث أعمال ورشة النمر</h2><p></p></div>
   <div class="categoryTabs" id="tabs"><button class="tab active" data-category="all">الكل</button></div>
   <div class="toolbar"><div class="search">🔎 <input id="searchInput" placeholder="ابحث عن منتج..." oninput="renderProducts()"></div><span class="resultCount" id="resultCount"></span></div>
   <div class="products" id="productGrid"><div class="empty">جاري تحميل المنتجات من Firebase...</div></div>
@@ -305,9 +338,20 @@ async function loadStoreData(showStatus=true){
  }
 }
 
+function categoryWhatsAppLink(categoryName){
+ const phone='201065342535';
+ const text=`السلام عليكم، أريد الاستفسار وطلب تصميم من قسم ${categoryName} في ورشة النمر للأثاث المنزلي.`;
+ return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+}
 function renderCategories(){
  if(!categories.length){$('categoryGrid').innerHTML='<div class="empty">لا توجد أقسام منشورة حاليًا.</div>';return}
- $('categoryGrid').innerHTML=categories.map(c=>`<article class="catCard" onclick="selectCategory('${esc(c.id)}')"><img src="${safeImg(c.image)}" alt="${esc(c.name)}" onerror="this.src='${DEFAULT_IMG}'"><div class="catBody"><h3>${esc(c.name)}</h3><span class="arrow">←</span></div></article>`).join('')
+ $('categoryGrid').innerHTML=categories.map(c=>`<article class="catCard">
+   <img src="${safeImg(c.image)}" alt="${esc(c.name)}" onerror="this.src='${DEFAULT_IMG}'">
+   <div class="catBody">
+     <h3>${esc(c.name)}</h3>
+     <button class="categoryWaBtn" onclick="window.open(categoryWhatsAppLink('${esc(c.name)}'),'_blank')">💬 اطلب تصميمك الآن</button>
+   </div>
+ </article>`).join('')
 }
 function renderTabs(){
  $('tabs').innerHTML='<button class="tab '+(currentCategory==='all'?'active':'')+'" onclick="selectCategory(\'all\')">الكل</button>'+categories.map(c=>`<button class="tab ${currentCategory===c.id?'active':''}" onclick="selectCategory('${esc(c.id)}')">${esc(c.name)}</button>`).join('')
