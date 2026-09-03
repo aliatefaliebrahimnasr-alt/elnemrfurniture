@@ -1,116 +1,166 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0f172a" />
-  <title>ورشة النمر للأثاث المنزلي</title>
-  <meta name="description" content="استعرض التصميمات حسب الأقسام واطلب تصميمك الآن." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f5efe6;--card:#fffdf9;--text:#3b2a20;--muted:#7b6b5f;--primary:#8b5e3c;
-      --primary2:#c1915b;--line:#e4d7c7;--shadow:0 12px 35px rgba(74,49,33,.10);
-      --radius:22px;--hero1:#3b2a20;--hero2:#6b442a;
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Cairo",system-ui,sans-serif;background:var(--bg);color:var(--text)}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1180px,calc(100% - 28px));margin:auto}
-    header{position:sticky;top:0;z-index:20;background:rgba(245,239,230,.90);backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,215,199,.85)}
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px}
-    .logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 8px 20px rgba(139,94,60,.25);overflow:hidden}.logo img{width:100%;height:100%;object-fit:cover;display:none}
-    .nav-btn{background:#4f3526;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;font-weight:700}
-    .hero{padding:55px 0 28px}
-    .hero-box{overflow:hidden;position:relative;border-radius:32px;min-height:340px;background:
-      radial-gradient(circle at 20% 20%,rgba(193,145,91,.30),transparent 36%),
-      linear-gradient(135deg,var(--hero1),var(--hero2));color:white;padding:48px;display:flex;align-items:center}
-    .hero-box:after{content:"";position:absolute;left:-90px;bottom:-130px;width:360px;height:360px;border:70px solid rgba(255,255,255,.06);border-radius:50%}
-    .hero-content{position:relative;z-index:1;max-width:730px}
-    .eyebrow{display:inline-flex;padding:7px 13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:13px;margin-bottom:16px}
-    h1{font-size:clamp(32px,5vw,58px);line-height:1.25;margin:0 0 14px;font-weight:800}
-    .hero p{margin:0;color:#e5e7eb;font-size:clamp(15px,2vw,18px);line-height:2}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
-    .hero-actions a{padding:12px 18px;border-radius:14px;font-weight:700}
-    .primary-btn{background:#fff;color:#111827}.ghost-btn{border:1px solid rgba(255,255,255,.25);color:#fff}
-    .section-title{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:32px 0 18px}
-    .section-title h2{margin:0;font-size:28px}.section-title p{margin:5px 0 0;color:var(--muted);font-size:14px}
-    .tabs{display:flex;gap:9px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-    .tabs::-webkit-scrollbar{display:none}
-    .tab{white-space:nowrap;border:1px solid var(--line);background:#fffdf9;color:#5d4737;border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
-    .tab.active{background:var(--text);color:white;border-color:var(--text)}
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:18px 0 50px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.25s transform,.25s box-shadow}
-    .card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(15,23,42,.12)}
-    .image-wrap{position:relative;aspect-ratio:1/1;background:#eee2d3;overflow:hidden}
-    .image-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s transform}
-    .card:hover img{transform:scale(1.025)}
-    .badge{position:absolute;top:12px;right:12px;background:rgba(17,24,39,.78);backdrop-filter:blur(8px);color:white;padding:6px 10px;border-radius:999px;font-size:12px}
-    .card-body{padding:17px}
-    .card h3{margin:0 0 6px;font-size:17px}.card p{margin:0 0 15px;color:var(--muted);font-size:13px;line-height:1.8;min-height:23px}
-    .order-btn{width:100%;border:0;background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:12px 15px;border-radius:14px;font:inherit;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
-    .state{grid-column:1/-1;background:#fff;border:1px dashed #d6dae3;border-radius:22px;padding:42px 18px;text-align:center;color:var(--muted)}
-    footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);font-size:13px;text-align:center}
-    .floating{position:fixed;left:20px;bottom:20px;z-index:30;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:white;box-shadow:0 10px 28px rgba(37,211,102,.35);font-size:26px}
-    @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.hero-box{padding:34px;min-height:310px}}
-    @media(max-width:580px){.gallery{grid-template-columns:1fr}.hero{padding-top:24px}.hero-box{padding:28px 22px;border-radius:24px;min-height:320px}.nav-btn{display:none}.section-title h2{font-size:23px}.gallery{gap:14px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>ورشة النمر للأثاث المنزلي</title>
+<meta name="description" content="معرض ورشة النمر للأثاث المنزلي - أثاث حسب الطلب">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f5;--surface:#fff;--text:#171717;--muted:#747474;--line:#e8e6e2;
+  --dark:#111;--accent:#a56f42;--accent2:#d4b08a;--soft:#f0ece7;
+  --radius:22px;--shadow:0 18px 60px rgba(18,18,18,.08)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Cairo",sans-serif;background:var(--bg);color:var(--text)}
+body.modal-open{overflow:hidden}a{text-decoration:none;color:inherit}button,input,select{font:inherit}img{display:block;max-width:100%}
+.container{width:min(1280px,calc(100% - 34px));margin:auto}
+.announcement{background:#111;color:#fff;font-size:12px}.announcement .container{min-height:34px;display:flex;align-items:center;justify-content:center;text-align:center}
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.header-main{height:76px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-logo{width:50px;height:50px;border-radius:15px;background:#111;color:#fff;display:grid;place-items:center;overflow:hidden;font-weight:800}.brand-logo img{width:100%;height:100%;object-fit:cover;display:none}.brand-name{font-weight:800;font-size:17px;white-space:nowrap}
+.global-search{position:relative;max-width:600px;width:100%;justify-self:center}.global-search input{width:100%;height:46px;border:1px solid var(--line);background:#fafafa;border-radius:999px;padding:0 46px 0 18px;outline:none}.global-search input:focus{border-color:#c6b6a8;background:#fff;box-shadow:0 0 0 4px rgba(165,111,66,.07)}.global-search span{position:absolute;right:17px;top:50%;transform:translateY(-50%);color:#777}
+.header-actions{display:flex;align-items:center;gap:8px}.header-actions a,.header-actions button{height:42px;min-width:42px;border:1px solid var(--line);background:#fff;border-radius:13px;display:grid;place-items:center;cursor:pointer}.header-actions .order-top{padding:0 15px;background:#111;color:#fff;border-color:#111;font-weight:800;font-size:12px}
+.navbar{border-top:1px solid #f2f0ed}.nav-inner{height:46px;display:flex;align-items:center;justify-content:center;gap:30px;font-size:13px;font-weight:700}.nav-inner a{position:relative}.nav-inner a:after{content:"";position:absolute;right:0;left:0;bottom:-11px;height:2px;background:#111;transform:scaleX(0);transition:.2s}.nav-inner a:hover:after{transform:scaleX(1)}
+
+.hero{padding:22px 0 0}.hero-shell{display:grid;grid-template-columns:1.1fr .9fr;min-height:570px;border-radius:30px;overflow:hidden;background:#111}
+.hero-content{padding:62px;color:#fff;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-content:before{content:"";position:absolute;width:440px;height:440px;border:80px solid rgba(255,255,255,.04);border-radius:50%;left:-180px;bottom:-220px}
+.hero-eyebrow{font-size:12px;letter-spacing:.4px;color:#d8c5b2;margin-bottom:15px}.hero h1{font-size:clamp(38px,5.4vw,72px);line-height:1.2;margin:0 0 18px;max-width:760px}.hero p{font-size:16px;line-height:2;color:#d2d2d2;max-width:700px;margin:0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.hero-actions a{padding:13px 18px;border-radius:12px;font-weight:800;font-size:13px}.hero-primary{background:#fff;color:#111}.hero-secondary{border:1px solid rgba(255,255,255,.25);color:#fff}
+.hero-media{position:relative;min-height:570px;background:#d8d1cb;overflow:hidden}.hero-media img{width:100%;height:100%;object-fit:cover}.hero-empty{height:100%;display:grid;place-items:center;padding:30px;text-align:center;background:linear-gradient(135deg,#d7d0c9,#bba996);color:#5d5148}
+.hero-overlay{position:absolute;right:18px;left:18px;bottom:18px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);padding:15px 16px;border-radius:15px;display:none}.hero-overlay b{display:block}.hero-overlay span{font-size:11px;color:#666}
+
+.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:18px;border:1px solid var(--line);border-radius:20px;overflow:hidden}.trust-item{background:#fff;padding:19px;text-align:center}.trust-item b{display:block;font-size:13px}.trust-item span{font-size:11px;color:var(--muted)}
+.section{padding:54px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}.section-head h2{margin:0;font-size:31px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.small-link{font-size:12px;font-weight:800;color:#555}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.cat-card{min-height:250px;border-radius:26px;background:linear-gradient(145deg,#fff,#f7f4f1);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.28s;position:relative;overflow:hidden;text-align:right}.cat-card:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(165,111,66,.07);left:-55px;top:-55px;transition:.28s}.cat-card:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(17,17,17,.10);border-color:#d5c6b9}.cat-card:hover:before{transform:scale(1.18)}.cat-icon{width:94px;height:94px;border-radius:28px;background:#111;color:#fff;display:grid;place-items:center;font-size:46px;line-height:1;box-shadow:0 12px 28px rgba(17,17,17,.14);position:relative;z-index:1}.cat-card b{font-size:22px;display:block;margin-bottom:6px;position:relative;z-index:1}.cat-card span{font-size:12px;color:var(--muted);position:relative;z-index:1}.cat-arrow{position:absolute;left:22px;bottom:22px;width:38px;height:38px;border-radius:50%;background:#f0ece7;display:grid;place-items:center;font-size:18px;transition:.22s}.cat-card:hover .cat-arrow{background:#111;color:#fff;transform:translateX(-3px)}
+.featured-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:16px}.toolbar .search{position:relative}.toolbar input{width:100%;height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:0 42px 0 14px;outline:none}.toolbar .search span{position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#777}.toolbar select{height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:0 13px;outline:none}
+.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:10px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{border:1px solid var(--line);background:#fff;color:#4b4b4b;padding:9px 15px;border-radius:999px;white-space:nowrap;cursor:pointer}.tab.active{background:#111;color:#fff;border-color:#111}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.22s;position:relative}.product-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.product-media{aspect-ratio:1.18/1;background:#ece8e4;position:relative;overflow:hidden}.product-media img{width:100%;height:100%;object-fit:cover;transition:.35s}.product-card:hover .product-media img{transform:scale(1.025)}
+.badge{position:absolute;top:12px;right:12px;background:#111;color:#fff;padding:6px 9px;border-radius:999px;font-size:10px}.featured-badge{position:absolute;top:12px;left:12px;background:#fff;color:#111;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800}
+.fav-btn{position:absolute;left:12px;bottom:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.94);cursor:pointer;font-size:17px}.fav-btn.on{background:#111;color:#fff}
+.product-info{padding:16px}.product-title-row{display:flex;justify-content:space-between;gap:12px;align-items:start}.product-info h3{margin:0;font-size:16px}.price{font-size:12px;font-weight:800;color:var(--accent);text-align:left}.product-info p{font-size:12px;color:var(--muted);line-height:1.8;margin:8px 0 10px;min-height:43px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.specs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.specs span{font-size:10px;background:#f5f2ef;padding:5px 8px;border-radius:999px}
+.card-actions{display:grid;grid-template-columns:1fr 44px 44px;gap:7px}.order-btn{height:43px;border:0;border-radius:12px;background:#111;color:#fff;font-weight:800;cursor:pointer}.icon-btn{border:1px solid var(--line);background:#fff;border-radius:12px;cursor:pointer}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed #d9d4cf;border-radius:18px;padding:40px;text-align:center;color:var(--muted)}
+.showcase{background:#111;color:#fff;border-radius:28px;padding:36px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.showcase h2{font-size:35px;margin:0 0 10px}.showcase p{margin:0;color:#cfcfcf;line-height:2}.showcase-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.showcase-list div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px;font-size:12px}
+.contact-card{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:25px;padding:27px}.contact-card h2{margin:0 0 8px}.contact-card p{margin:0;color:var(--muted);line-height:1.9}.contact-actions{display:flex;gap:8px;flex-wrap:wrap}.contact-actions a{padding:11px 14px;border-radius:11px;font-weight:800;font-size:12px;background:#111;color:#fff}.contact-actions a.alt{background:#f2efeb;color:#111}
+footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
+.floating-wa{position:fixed;left:20px;bottom:20px;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;z-index:50;box-shadow:0 12px 28px rgba(0,0,0,.16);font-weight:800;font-size:11px}
+.mobilebar{display:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-card{width:min(1040px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:24px;display:grid;grid-template-columns:1.1fr .9fr;position:relative}.modal-img{background:#ece7e2;min-height:560px}.modal-img img{width:100%;height:100%;object-fit:contain}.modal-info{padding:31px}.modal-info h2{margin:8px 0}.modal-info p{color:var(--muted);line-height:1.9}.modal-specs{display:grid;gap:8px;margin:18px 0}.modal-specs div{background:#f6f3f0;padding:10px 12px;border-radius:11px;font-size:12px}.modal-actions{display:flex;gap:8px;flex-wrap:wrap}.modal-actions a,.modal-actions button{border:0;border-radius:11px;padding:11px 14px;font-weight:800;cursor:pointer}.modal-actions a{background:#111;color:#fff}.modal-actions button{background:#eeeae6}.close{position:absolute;top:12px;left:12px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;box-shadow:0 7px 20px rgba(0,0,0,.12);cursor:pointer;font-size:20px}
+.toast{display:none;position:fixed;right:20px;bottom:20px;z-index:120;background:#111;color:#fff;padding:10px 14px;border-radius:11px;font-size:11px}
+
+@media(max-width:1050px){.global-search{display:none}.header-main{grid-template-columns:auto 1fr}.header-actions{justify-self:end}.hero-shell{grid-template-columns:1fr}.hero-media{min-height:420px}.category-grid{grid-template-columns:repeat(2,1fr)}.featured-strip,.gallery{grid-template-columns:repeat(2,1fr)}.showcase{grid-template-columns:1fr}.modal-card{grid-template-columns:1fr}.modal-img{min-height:370px}}
+@media(max-width:680px){.announcement{display:none}.container{width:min(100% - 22px,1280px)}.header-main{height:66px}.brand-logo{width:43px;height:43px}.brand-name{font-size:14px}.navbar{display:none}.header-actions .order-top{display:none}.hero{padding-top:12px}.hero-shell{border-radius:22px}.hero-content{padding:31px 22px;min-height:390px}.hero-media{min-height:330px}.hero h1{font-size:36px}.trust-row{grid-template-columns:1fr 1fr}.section{padding:38px 0}.section-head h2{font-size:24px}.category-grid,.featured-strip,.gallery{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.product-media{aspect-ratio:1.08/1}.showcase{padding:24px 20px;border-radius:21px}.showcase h2{font-size:27px}.showcase-list{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr}.floating-wa{display:none}.mobilebar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;right:9px;left:9px;bottom:9px;z-index:60;background:rgba(17,17,17,.97);color:#fff;border-radius:17px;padding:7px;box-shadow:0 14px 35px rgba(0,0,0,.25)}.mobilebar a{font-size:9px;text-align:center;padding:6px 2px}.mobilebar b{display:block;font-size:17px}.modal{padding:0;align-items:flex-end}.modal-card{border-radius:22px 22px 0 0;max-height:94vh}.modal-img{min-height:280px}.modal-info{padding:22px}}
+</style>
 </head>
 <body>
+<div class="announcement"><div class="container">تصميم وتنفيذ أثاث منزلي حسب الطلب والمقاسات • ورشة النمر للأثاث المنزلي</div></div>
+
 <header>
-  <div class="container nav">
-    <div class="brand"><span class="logo" id="logoBox"><span id="logoFallback">✦</span><img id="siteLogo" alt="لوجو ورشة النمر"></span><span id="brandName">ورشة النمر للأثاث المنزلي</span></div>
-    <a class="nav-btn" href="#designs">استعرض التصميمات</a>
+  <div class="container header-main">
+    <a class="brand" href="#">
+      <span class="brand-logo"><span id="logoFallback">ن</span><img id="siteLogo" alt="لوجو"></span>
+      <span class="brand-name" id="brandName">ورشة النمر للأثاث المنزلي</span>
+    </a>
+    <div class="global-search"><span>⌕</span><input id="globalSearch" placeholder="ابحث في التصميمات والخامات..."></div>
+    <div class="header-actions">
+      <a id="facebookTop" target="_blank" rel="noopener" title="فيسبوك" style="display:none">f</a>
+      <a id="phoneTop" href="tel:01065342535" title="اتصال">☎</a>
+      <a id="headerWhats" class="order-top" target="_blank" rel="noopener">اطلب تصميمك</a>
+    </div>
   </div>
+  <div class="navbar"><div class="container nav-inner"><a href="#">الرئيسية</a><a href="#categoriesSection">الأقسام</a><a href="#gallerySection">التصميمات</a><a href="#whyUs">لماذا نحن</a><a href="#contact">تواصل معنا</a></div></div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-box">
-        <div class="hero-content">
-          <span class="eyebrow">تصميمات جاهزة للإلهام والتنفيذ</span>
-          <h1 id="heroTitle">اختار أثاث بيتك من تصميمات ورشة النمر</h1>
-          <p id="heroSubtitle">تصفح غرف النوم وغرف الأطفال والركن والانتريهات والسفرة والمطابخ والأبواب والشبابيك واطلب تصميمك بالمقاس اللي يناسب بيتك.</p>
-          <div class="hero-actions">
-            <a href="#designs" class="primary-btn">شاهد الأعمال</a>
-            <a href="#" id="heroWhats" class="ghost-btn" target="_blank" rel="noopener">اطلب تصميمك الآن</a>
-          </div>
-        </div>
+<section class="hero">
+  <div class="container">
+    <div class="hero-shell">
+      <div class="hero-content">
+        <div class="hero-eyebrow">EL NEMER FURNITURE • CUSTOM MADE</div>
+        <h1 id="heroTitle">أثاث يتصمم على ذوقك ويتنفذ على مقاس بيتك</h1>
+        <p id="heroSubtitle">استعرض التصميمات واختار الفكرة المناسبة، ثم اطلب تنفيذها مباشرة من ورشة النمر.</p>
+        <div class="hero-actions"><a href="#gallerySection" class="hero-primary">استعرض التصميمات</a><a id="heroWhats" class="hero-secondary" target="_blank" rel="noopener">تواصل واتساب</a></div>
       </div>
+      <div class="hero-media" id="heroMedia"><div class="hero-empty">سيظهر هنا تصميم مميز تلقائياً بعد إضافته من لوحة الأدمن.</div><div class="hero-overlay" id="heroOverlay"><b id="heroDesignTitle"></b><span>اضغط لعرض التفاصيل</span></div></div>
     </div>
-  </section>
-
-  <section id="designs" class="container">
-    <div class="section-title">
-      <div><h2>أقسام التصميمات</h2><p>اختار القسم المناسب ليظهر لك كل ما يخصه</p></div>
+    <div class="trust-row">
+      <div class="trust-item"><b>تنفيذ حسب الطلب</b><span>المقاسات والتفاصيل حسب احتياجك</span></div>
+      <div class="trust-item"><b>اختيارات متعددة</b><span>أقسام متنوعة لكل أثاث المنزل</span></div>
+      <div class="trust-item"><b>تواصل مباشر</b><span>طلب التصميم عبر واتساب</span></div>
+      <div class="trust-item"><b id="trustAddress">بني عدي البحرية</b><span>أسيوط • منفلوط</span></div>
     </div>
-    <div id="tabs" class="tabs"><button class="tab active" data-cat="all">الكل</button></div>
-    <div id="gallery" class="gallery"><div class="state">جاري تحميل التصميمات...</div></div>
-  </section>
+  </div>
+</section>
 
-  <section class="container" id="contactInfo" style="padding:0 0 42px">
-    <div style="background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)">
-      <h2 style="margin:0 0 14px;font-size:22px">تواصل مع ورشة النمر</h2>
-      <div style="display:grid;gap:10px;color:var(--muted);font-size:14px">
-        <div><strong style="color:var(--text)">العنوان:</strong> <span id="contactAddress">أسيوط - منفلوط - بني عدي البحرية</span></div>
-        <div><strong style="color:var(--text)">الموبايل:</strong> <a id="contactPhone" href="tel:01065342535">01065342535</a></div>
-        <div id="facebookRow" style="display:none"><strong style="color:var(--text)">فيسبوك:</strong> <a id="facebookLink" href="#" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700">زيارة صفحة الفيسبوك</a></div>
-      </div>
+<section id="categoriesSection" class="section">
+  <div class="container">
+    <div class="section-head"><div><h2>اختار قسم الأثاث</h2><p>بطاقات كبيرة تسهّل عليك الوصول للتصميم المناسب بسرعة</p></div><a href="#gallerySection" class="small-link">مشاهدة كل التصميمات ←</a></div>
+    <div id="categoryGrid" class="category-grid"></div>
+  </div>
+</section>
+
+<section id="featuredSection" class="section" style="display:none">
+  <div class="container">
+    <div class="section-head"><div><h2>مختارات ورشة النمر</h2><p>تصميمات مميزة اخترناها لك</p></div></div>
+    <div id="featuredGrid" class="featured-strip"></div>
+  </div>
+</section>
+
+<section id="gallerySection" class="section">
+  <div class="container">
+    <div class="section-head"><div><h2>كل التصميمات</h2><p>ابحث وفلتر وشاهد التفاصيل قبل الطلب</p></div><span id="resultCount" class="small-link"></span></div>
+    <div class="toolbar">
+      <div class="search"><span>⌕</span><input id="searchInput" placeholder="ابحث باسم التصميم أو الخامة..."></div>
+      <select id="sortSelect"><option value="newest">الأحدث أولاً</option><option value="oldest">الأقدم أولاً</option><option value="az">الاسم أ - ي</option></select>
     </div>
-  </section>
+    <div id="tabs" class="tabs"><button class="tab active" data-cat="all">الكل</button><button class="tab" data-cat="favorites">المفضلة</button></div>
+    <div id="gallery" class="gallery"><div class="empty">جاري تحميل التصميمات...</div></div>
+  </div>
+</section>
 
+<section id="whyUs" class="section">
+  <div class="container">
+    <div class="showcase">
+      <div><div class="hero-eyebrow">من الفكرة للتنفيذ</div><h2>مش مجرد معرض صور، ده بداية تصميم بيتك</h2><p>تقدر تختار تصميم موجود أو تستخدمه كمرجع، وتطلب تعديل المقاس أو الخامة أو التفاصيل حسب المكان واحتياجك.</p></div>
+      <div class="showcase-list"><div>✓ تصميم حسب الطلب</div><div>✓ تعديل المقاسات</div><div>✓ اختيار الخامات</div><div>✓ تواصل مباشر مع الورشة</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-card">
+      <div><h2 id="contactName">ورشة النمر للأثاث المنزلي</h2><p><span id="contactAddress">أسيوط - منفلوط - بني عدي البحرية</span><br><span id="contactPhone">01065342535</span></p></div>
+      <div class="contact-actions"><a id="contactWhats" target="_blank" rel="noopener">واتساب</a><a id="callLink" class="alt" href="tel:01065342535">اتصال</a><a id="facebookLink" class="alt" target="_blank" rel="noopener" style="display:none">فيسبوك</a></div>
+    </div>
+  </div>
+</section>
 </main>
 
-<a id="floatingWhats" class="floating" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">⌁</a>
-<a id="floatingFacebook" class="floating" href="#" target="_blank" rel="noopener" aria-label="Facebook" style="bottom:88px;background:#1877F2;display:none;font-size:22px">f</a>
+<footer><div class="container"><span id="footerText">ورشة النمر للأثاث المنزلي - جميع الحقوق محفوظة</span> © <span id="year"></span></div></footer>
+<a id="floatingWhats" class="floating-wa" target="_blank" rel="noopener">واتساب</a>
+<nav class="mobilebar"><a href="#"><b>⌂</b>الرئيسية</a><a href="#categoriesSection"><b>▦</b>الأقسام</a><a href="#gallerySection"><b>◫</b>التصميمات</a><a id="mobileWhats" target="_blank" rel="noopener"><b>◉</b>واتساب</a></nav>
 
-<footer>
-  <div class="container"><span id="footerText">جميع الحقوق محفوظة</span> © <span id="year"></span></div>
-</footer>
+<div class="modal" id="designModal">
+  <div class="modal-card">
+    <button class="close" id="modalClose">×</button>
+    <div class="modal-img"><img id="modalImage" alt=""></div>
+    <div class="modal-info">
+      <span id="modalCategory" class="badge" style="position:static;display:inline-block"></span>
+      <h2 id="modalTitle"></h2><p id="modalDescription"></p>
+      <div id="modalSpecs" class="modal-specs"></div>
+      <div class="modal-actions"><a id="modalOrder" target="_blank" rel="noopener">اطلب هذا التصميم</a><button id="modalShare">مشاركة</button></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
@@ -123,123 +173,95 @@ const firebaseConfig = {
   storageBucket: "elnemrfurniture.firebasestorage.app",
   messagingSenderId: "1046259541294"
 };
-const DEFAULT_WHATSAPP = "201065342535";
-const DEFAULT_PHONE = "01065342535";
-const DEFAULT_ADDRESS = "أسيوط - منفلوط - بني عدي البحرية";
+const app=initializeApp(firebaseConfig),db=getDatabase(app);
+const $=id=>document.getElementById(id);
+let categories={},designs={},settings={},activeCategory="all",query="",sortBy="newest",currentModalId="";
+let favorites=new Set(JSON.parse(localStorage.getItem("elnemer_favorites")||"[]"));
+$("year").textContent=new Date().getFullYear();
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-const tabs = document.getElementById("tabs");
-const gallery = document.getElementById("gallery");
-let categories = {};
-let designs = {};
-let settings = {};
-let activeCategory = "all";
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const safe = (v="") => String(v).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const waLink = (designTitle="") => {
-  const number = (settings.whatsapp || DEFAULT_WHATSAPP || "").replace(/\D/g,"");
-  const msg = designTitle
-    ? `مرحباً، أريد طلب تصميم مشابه لـ: ${designTitle}`
-    : (settings.defaultMessage || "مرحباً، أريد طلب تصميم خاص بي");
-  return `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
+const waNumber=()=>String(settings.whatsapp||"201065342535").replace(/\D/g,"");
+const waLink=(title="")=>{
+  const base=settings.defaultMessage||"مرحباً، أريد طلب تصميم أثاث من ورشة النمر";
+  return `https://wa.me/${waNumber()}?text=${encodeURIComponent(title?`${base}\n\nالتصميم: ${title}`:base)}`
 };
+const toast=msg=>{$("toast").textContent=msg;$("toast").style.display="block";clearTimeout(window.__t);window.__t=setTimeout(()=>$("toast").style.display="none",2200)};
+function saveFavs(){localStorage.setItem("elnemer_favorites",JSON.stringify([...favorites]))}
 
 function applySettings(){
-  const name = settings.siteName || "ورشة النمر للأثاث المنزلي";
-  document.title = name;
-  document.getElementById("brandName").textContent = name;
-  document.getElementById("heroTitle").textContent = settings.heroTitle || "اختار أثاث بيتك من تصميمات ورشة النمر";
-  document.getElementById("heroSubtitle").textContent = settings.heroSubtitle || "تصفح غرف النوم وغرف الأطفال والركن والانتريهات والسفرة والمطابخ والأبواب والشبابيك واطلب تصميمك بالمقاس اللي يناسب بيتك.";
-  document.getElementById("footerText").textContent = settings.footerText || "ورشة النمر للأثاث المنزلي - جميع الحقوق محفوظة";
-  document.getElementById("heroWhats").href = waLink();
-  document.getElementById("floatingWhats").href = waLink();
-  const addressEl = document.getElementById("contactAddress");
-  const phoneEl = document.getElementById("contactPhone");
-  if(addressEl) addressEl.textContent = settings.address || DEFAULT_ADDRESS;
-  if(phoneEl){
-    const p = settings.phone || DEFAULT_PHONE;
-    phoneEl.textContent = p;
-    phoneEl.href = "tel:" + p;
-  }
-
-  const logo = settings.logo || "";
-  const logoImg = document.getElementById("siteLogo");
-  const logoFallback = document.getElementById("logoFallback");
-  if(logoImg && logo){
-    logoImg.src = logo;
-    logoImg.style.display = "block";
-    if(logoFallback) logoFallback.style.display = "none";
-  } else {
-    if(logoImg) logoImg.style.display = "none";
-    if(logoFallback) logoFallback.style.display = "inline";
-  }
-
-  const fb = (settings.facebook || "").trim();
-  const fbRow = document.getElementById("facebookRow");
-  const fbLink = document.getElementById("facebookLink");
-  const floatingFacebook = document.getElementById("floatingFacebook");
-  if(fb){
-    if(fbRow) fbRow.style.display = "block";
-    if(fbLink) fbLink.href = fb;
-    if(floatingFacebook){ floatingFacebook.href = fb; floatingFacebook.style.display = "grid"; }
-  } else {
-    if(fbRow) fbRow.style.display = "none";
-    if(floatingFacebook) floatingFacebook.style.display = "none";
-  }
+  const name=settings.siteName||"ورشة النمر للأثاث المنزلي",address=settings.address||"أسيوط - منفلوط - بني عدي البحرية",phone=settings.phone||"01065342535";
+  document.title=name;$("brandName").textContent=name;$("contactName").textContent=name;$("heroTitle").textContent=settings.heroTitle||"أثاث يتصمم على ذوقك ويتنفذ على مقاس بيتك";$("heroSubtitle").textContent=settings.heroSubtitle||"استعرض التصميمات واختار الفكرة المناسبة، ثم اطلب تنفيذها مباشرة من ورشة النمر.";
+  $("contactAddress").textContent=address;$("contactPhone").textContent=phone;$("callLink").href="tel:"+phone;$("phoneTop").href="tel:"+phone;$("footerText").textContent=settings.footerText||`${name} - جميع الحقوق محفوظة`;
+  ["headerWhats","heroWhats","contactWhats","floatingWhats","mobileWhats"].forEach(id=>$(id).href=waLink());
+  const fb=(settings.facebook||"").trim();["facebookLink","facebookTop"].forEach(id=>{$(id).style.display=fb?"grid":"none";if(fb)$(id).href=fb});
+  if(settings.logo){$("siteLogo").src=settings.logo;$("siteLogo").style.display="block";$("logoFallback").style.display="none"}else{$("siteLogo").style.display="none";$("logoFallback").style.display="inline"}
 }
 
+function renderCategories(){
+  const arr=Object.entries(categories).sort((a,b)=>(a[1]?.order||0)-(b[1]?.order||0));
+
+  const iconFor = name => {
+    const n=String(name||"").toLowerCase();
+    if(n.includes("غرف نوم") || n.includes("نوم")) return "🛏️";
+    if(n.includes("أطفال") || n.includes("اطفال")) return "🧸";
+    if(n.includes("ركن") || n.includes("انتريه") || n.includes("انتريهات")) return "🛋️";
+    if(n.includes("نيش")) return "🪞";
+    if(n.includes("سفرة") || n.includes("طعام")) return "🍽️";
+    if(n.includes("مطبخ") || n.includes("مطابخ")) return "🍳";
+    if(n.includes("باب") || n.includes("شباك")) return "🚪";
+    if(n.includes("مكتب")) return "🪑";
+    if(n.includes("دولاب") || n.includes("دولايب")) return "🗄️";
+    if(n.includes("مكتبة")) return "📚";
+    return "🪵";
+  };
+
+  $("categoryGrid").innerHTML=arr.length?arr.map(([id,c])=>{
+    const count=Object.values(designs).filter(d=>d?.active!==false&&d?.categoryId===id).length;
+    return `<button class="cat-card" data-category-jump="${id}">
+      <span class="cat-icon" aria-hidden="true">${iconFor(c.name)}</span>
+      <div>
+        <b>${c.name||"قسم"}</b>
+        <span>${count} تصميم متاح</span>
+      </div>
+      <span class="cat-arrow">←</span>
+    </button>`
+  }).join(""):`<div class="empty">سيتم عرض الأقسام هنا بعد إضافتها من لوحة الأدمن.</div>`;
+}
 function renderTabs(){
-  const sorted = Object.entries(categories).sort((a,b)=>(a[1].order||0)-(b[1].order||0));
-  tabs.innerHTML = `<button class="tab ${activeCategory==="all"?"active":""}" data-cat="all">الكل</button>` +
-    sorted.map(([id,c]) => `<button class="tab ${activeCategory===id?"active":""}" data-cat="${safe(id)}">${safe(c.name||"قسم")}</button>`).join("");
+  const arr=Object.entries(categories).sort((a,b)=>(a[1]?.order||0)-(b[1]?.order||0));
+  $("tabs").innerHTML=`<button class="tab ${activeCategory==="all"?"active":""}" data-cat="all">الكل</button><button class="tab ${activeCategory==="favorites"?"active":""}" data-cat="favorites">المفضلة</button>`+arr.map(([id,c])=>`<button class="tab ${activeCategory===id?"active":""}" data-cat="${id}">${c.name||"قسم"}</button>`).join("");
 }
-
-function renderGallery(){
-  const list = Object.entries(designs)
-    .filter(([,d]) => d && d.active !== false)
-    .filter(([,d]) => activeCategory==="all" || d.categoryId===activeCategory)
-    .sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0));
-
-  if(!list.length){
-    gallery.innerHTML = `<div class="state">لا توجد تصميمات في هذا القسم حالياً.</div>`;
-    return;
-  }
-  gallery.innerHTML = list.map(([id,d]) => {
-    const cat = categories[d.categoryId]?.name || "تصميم";
-    const title = d.title || "تصميم مميز";
-    const image = d.image || "";
-    const desc = d.description || "";
-    return `
-      <article class="card">
-        <div class="image-wrap">
-          <img src="${safe(image)}" alt="${safe(title)}" loading="lazy" onerror="this.src='https://placehold.co/900x900?text=Design'">
-          <span class="badge">${safe(cat)}</span>
-        </div>
-        <div class="card-body">
-          <h3>${safe(title)}</h3>
-          <p>${safe(desc)}</p>
-          <a class="order-btn" href="${safe(waLink(title))}" target="_blank" rel="noopener">اطلب تصميمك الآن <span>←</span></a>
-        </div>
-      </article>`;
-  }).join("");
+function filtered(){
+  let arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false);
+  if(activeCategory==="favorites")arr=arr.filter(([id])=>favorites.has(id));else if(activeCategory!=="all")arr=arr.filter(([,d])=>d.categoryId===activeCategory);
+  if(query){const q=query.toLowerCase();arr=arr.filter(([,d])=>[d.title,d.description,d.material,d.dimensions,d.price].some(v=>String(v||"").toLowerCase().includes(q)))}
+  if(sortBy==="oldest")arr.sort((a,b)=>(a[1].createdAt||0)-(b[1].createdAt||0));else if(sortBy==="az")arr.sort((a,b)=>String(a[1].title||"").localeCompare(String(b[1].title||""),"ar"));else arr.sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0));
+  return arr
 }
-
-tabs.addEventListener("click", e => {
-  const btn = e.target.closest("[data-cat]");
-  if(!btn) return;
-  activeCategory = btn.dataset.cat;
-  renderTabs();
-  renderGallery();
-});
-
-onValue(ref(db,"categories"), snap => { categories = snap.val() || {}; renderTabs(); renderGallery(); });
-onValue(ref(db,"designs"), snap => { designs = snap.val() || {}; renderGallery(); });
-onValue(ref(db,"settings"), snap => { settings = snap.val() || {}; applySettings(); renderGallery(); });
-
-applySettings();
+function makeCard(id,d){
+  const card=document.createElement("article");card.className="product-card";
+  const media=document.createElement("div");media.className="product-media";const img=document.createElement("img");img.src=d.image||"";img.alt=d.title||"تصميم";img.loading="lazy";img.onerror=()=>{img.onerror=null;img.src="https://placehold.co/900x700?text=El+Nemer"};
+  const badge=document.createElement("span");badge.className="badge";badge.textContent=categories[d.categoryId]?.name||"تصميم";media.append(img,badge);
+  if(d.featured){const f=document.createElement("span");f.className="featured-badge";f.textContent="مميز";media.appendChild(f)}
+  const fav=document.createElement("button");fav.className="fav-btn"+(favorites.has(id)?" on":"");fav.textContent=favorites.has(id)?"♥":"♡";fav.onclick=e=>{e.stopPropagation();favorites.has(id)?favorites.delete(id):favorites.add(id);saveFavs();renderAll()};media.appendChild(fav);media.onclick=()=>openModal(id);
+  const info=document.createElement("div");info.className="product-info";const row=document.createElement("div");row.className="product-title-row";const h=document.createElement("h3");h.textContent=d.title||"تصميم مميز";const price=document.createElement("div");price.className="price";price.textContent=d.price||"حسب الطلب";row.append(h,price);
+  const p=document.createElement("p");p.textContent=d.description||"يمكن تنفيذ التصميم حسب المقاسات والتفاصيل المطلوبة.";
+  const specs=document.createElement("div");specs.className="specs";if(d.material){const s=document.createElement("span");s.textContent=d.material;specs.appendChild(s)}if(d.dimensions){const s=document.createElement("span");s.textContent=d.dimensions;specs.appendChild(s)}
+  const actions=document.createElement("div");actions.className="card-actions";const order=document.createElement("a");order.className="order-btn";order.href=waLink(d.title||"");order.target="_blank";order.rel="noopener";order.textContent="اطلب تصميمك";const details=document.createElement("button");details.className="icon-btn";details.textContent="⌕";details.onclick=()=>openModal(id);const share=document.createElement("button");share.className="icon-btn";share.textContent="↗";share.onclick=()=>shareDesign(id);actions.append(order,details,share);
+  info.append(row,p,specs,actions);card.append(media,info);return card
+}
+function renderGallery(){const arr=filtered();$("gallery").innerHTML="";$("resultCount").textContent=`${arr.length} تصميم`;if(!arr.length){$("gallery").innerHTML=`<div class="empty">لا توجد تصميمات مطابقة حالياً.</div>`;return}arr.forEach(([id,d])=>$("gallery").appendChild(makeCard(id,d)))}
+function renderFeatured(){const arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false&&d.featured).sort((a,b)=>(b[1].updatedAt||0)-(a[1].updatedAt||0)).slice(0,3);$("featuredGrid").innerHTML="";$("featuredSection").style.display=arr.length?"block":"none";arr.forEach(([id,d])=>$("featuredGrid").appendChild(makeCard(id,d)))}
+function renderHero(){const arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false);if(!arr.length)return;const pick=arr.find(([,d])=>d.featured)||arr.sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0))[0];const [id,d]=pick;$("heroMedia").querySelector(".hero-empty")?.remove();let img=$("heroMedia").querySelector("img");if(!img){img=document.createElement("img");$("heroMedia").prepend(img)}img.src=d.image||"";img.alt=d.title||"تصميم";$("heroOverlay").style.display="block";$("heroDesignTitle").textContent=d.title||"تصميم مميز";$("heroMedia").style.cursor="pointer";$("heroMedia").onclick=()=>openModal(id)}
+function renderAll(){renderCategories();renderTabs();renderGallery();renderFeatured();renderHero()}
+function openModal(id){const d=designs[id];if(!d)return;currentModalId=id;$("modalImage").src=d.image||"";$("modalTitle").textContent=d.title||"تصميم";$("modalCategory").textContent=categories[d.categoryId]?.name||"تصميم";$("modalDescription").textContent=d.description||"يمكن تنفيذ التصميم حسب الطلب.";$("modalSpecs").innerHTML="";[["الخامة",d.material],["المقاس",d.dimensions],["السعر",d.price||"حسب الطلب"]].forEach(([k,v])=>{if(v){const x=document.createElement("div");x.textContent=`${k}: ${v}`;$("modalSpecs").appendChild(x)}});$("modalOrder").href=waLink(d.title||"");$("designModal").classList.add("show");document.body.classList.add("modal-open")}
+function closeModal(){$("designModal").classList.remove("show");document.body.classList.remove("modal-open")}
+async function shareDesign(id){const d=designs[id];if(!d)return;const text=`${d.title||"تصميم"} - ${settings.siteName||"ورشة النمر للأثاث المنزلي"}`;try{if(navigator.share)await navigator.share({title:text,text});else{await navigator.clipboard.writeText(text);toast("تم نسخ اسم التصميم")}}catch(e){}}
+$("tabs").onclick=e=>{const b=e.target.closest("[data-cat]");if(!b)return;activeCategory=b.dataset.cat;renderAll()}
+$("categoryGrid").onclick=e=>{const b=e.target.closest("[data-category-jump]");if(!b)return;activeCategory=b.dataset.categoryJump;renderAll();document.querySelector("#gallerySection").scrollIntoView({behavior:"smooth"})}
+$("searchInput").oninput=e=>{query=e.target.value.trim();$("globalSearch").value=query;renderGallery()}
+$("globalSearch").oninput=e=>{query=e.target.value.trim();$("searchInput").value=query;renderGallery();if(query)document.querySelector("#gallerySection").scrollIntoView({behavior:"smooth"})}
+$("sortSelect").onchange=e=>{sortBy=e.target.value;renderGallery()}
+$("modalClose").onclick=closeModal;$("designModal").onclick=e=>{if(e.target===$("designModal"))closeModal()};$("modalShare").onclick=()=>shareDesign(currentModalId);document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()})
+onValue(ref(db,"categories"),s=>{categories=s.val()||{};renderAll()},e=>console.error(e));onValue(ref(db,"designs"),s=>{designs=s.val()||{};renderAll()},e=>{$("gallery").innerHTML=`<div class="empty">تعذر تحميل التصميمات. راجع Firebase.</div>`;console.error(e)});onValue(ref(db,"settings"),s=>{settings=s.val()||{};applySettings()},e=>console.error(e));applySettings();
 </script>
-</body>
-</html>
+</body></html>
