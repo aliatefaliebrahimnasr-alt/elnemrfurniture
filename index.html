@@ -23,14 +23,14 @@ header{position:sticky;top:0;z-index:60;background:rgba(244,239,231,.94);backdro
 .header-main{height:76px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-logo{width:50px;height:50px;border-radius:16px;background:linear-gradient(145deg,#171513,#3a2f27);color:#fff;display:grid;place-items:center;overflow:hidden;font-weight:800}.brand-logo img{width:100%;height:100%;object-fit:cover;display:none}.brand-name{font-weight:800;font-size:17px;white-space:nowrap}
 .global-search{position:relative;max-width:600px;width:100%;justify-self:center}.global-search input{width:100%;height:46px;border:1px solid var(--line);background:#fffaf4;border-radius:999px;padding:0 46px 0 18px;outline:none}.global-search input:focus{border-color:#c6b6a8;background:#fff;box-shadow:0 0 0 4px rgba(165,111,66,.07)}.global-search span{position:absolute;right:17px;top:50%;transform:translateY(-50%);color:#777}
-.header-actions{display:flex;align-items:center;gap:8px}.header-actions a,.header-actions button{height:42px;min-width:42px;border:1px solid var(--line);background:#fff;border-radius:13px;display:grid;place-items:center;cursor:pointer}.header-actions .order-top{padding:0 15px;background:linear-gradient(135deg,#171513,#4a3729);color:#fff;border-color:#171513;font-weight:800;font-size:12px}
+.header-actions{display:flex;align-items:center;gap:8px}.header-actions a,.header-actions button{height:42px;min-width:42px;border:1px solid var(--line);background:#fff;border-radius:13px;display:grid;place-items:center;cursor:pointer}.header-actions .order-top{padding:0 18px;background:linear-gradient(135deg,#8f633e,#b48456,#6d4930);color:#fff;border-color:#8f633e;font-weight:800;font-size:12px;box-shadow:0 8px 20px rgba(143,99,62,.20)}
 .navbar{border-top:1px solid #f2f0ed}.nav-inner{height:46px;display:flex;align-items:center;justify-content:center;gap:30px;font-size:13px;font-weight:700}.nav-inner a{position:relative}.nav-inner a:after{content:"";position:absolute;right:0;left:0;bottom:-11px;height:2px;background:#111;transform:scaleX(0);transition:.2s}.nav-inner a:hover:after{transform:scaleX(1)}
 
 .hero{padding:22px 0 0}.hero-shell{display:grid;grid-template-columns:1.1fr .9fr;min-height:590px;border-radius:34px;overflow:hidden;background:linear-gradient(135deg,#171513 0%,#2c231d 58%,#5b402c 100%);box-shadow:0 30px 90px rgba(38,29,22,.18)}
 .hero-content{padding:66px;color:#fff;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
 .hero-content:before{content:"";position:absolute;width:480px;height:480px;border:86px solid rgba(213,182,143,.07);border-radius:50%;left:-180px;bottom:-220px}
 .hero-eyebrow{font-size:12px;letter-spacing:.5px;color:#e3c29f;margin-bottom:15px}.hero h1{font-size:clamp(38px,5.4vw,72px);line-height:1.2;margin:0 0 18px;max-width:760px}.hero p{font-size:16px;line-height:2;color:#d2d2d2;max-width:700px;margin:0}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.hero-actions a{padding:13px 18px;border-radius:12px;font-weight:800;font-size:13px}.hero-primary{background:#f7efe5;color:#171513;box-shadow:0 10px 28px rgba(0,0,0,.12)}.hero-secondary{border:1px solid rgba(213,182,143,.35);color:#fff;background:rgba(255,255,255,.03)}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.hero-actions a{padding:13px 18px;border-radius:12px;font-weight:800;font-size:13px}.hero-primary{background:linear-gradient(135deg,#f8efe5,#e8d3bc);color:#171513;box-shadow:0 12px 30px rgba(0,0,0,.14);font-size:14px}.hero-secondary{border:1px solid rgba(213,182,143,.35);color:#fff;background:rgba(255,255,255,.03)}
 .hero-media{position:relative;min-height:570px;background:#d8d1cb;overflow:hidden}.hero-media img{width:100%;height:100%;object-fit:cover}.hero-empty{height:100%;display:grid;place-items:center;padding:30px;text-align:center;background:linear-gradient(135deg,#d7d0c9,#bba996);color:#5d5148}
 .hero-overlay{position:absolute;right:18px;left:18px;bottom:18px;background:rgba(248,242,235,.92);backdrop-filter:blur(10px);padding:15px 16px;border-radius:15px;display:none}.hero-overlay b{display:block}.hero-overlay span{font-size:11px;color:#666}
 
@@ -45,14 +45,26 @@ header{position:sticky;top:0;z-index:60;background:rgba(244,239,231,.94);backdro
 .badge{position:absolute;top:12px;right:12px;background:rgba(23,21,19,.88);backdrop-filter:blur(8px);color:#fff;padding:6px 9px;border-radius:999px;font-size:10px}.featured-badge{position:absolute;top:12px;left:12px;background:#e8d1b8;color:#4b3424;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800}
 .fav-btn{position:absolute;left:12px;bottom:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.94);cursor:pointer;font-size:17px}.fav-btn.on{background:#171513;color:#fff}
 .product-info{padding:16px}.product-title-row{display:flex;justify-content:space-between;gap:12px;align-items:start}.product-info h3{margin:0;font-size:16px}.price{font-size:12px;font-weight:800;color:var(--accent);text-align:left}.product-info p{font-size:12px;color:var(--muted);line-height:1.8;margin:8px 0 10px;min-height:43px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.specs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.specs span{font-size:10px;background:#f5f2ef;padding:5px 8px;border-radius:999px}
-.card-actions{display:grid;grid-template-columns:1fr 44px 44px;gap:7px}.order-btn{height:43px;border:0;border-radius:12px;background:linear-gradient(135deg,#171513,#4c3829);color:#fff;font-weight:800;cursor:pointer}.icon-btn{border:1px solid var(--line);background:#fff;border-radius:12px;cursor:pointer}
+.card-actions{display:grid;grid-template-columns:1fr 44px 44px;gap:8px;align-items:stretch}
+.order-btn{min-height:52px;border:0;border-radius:15px;background:linear-gradient(135deg,#8f633e 0%,#b48456 50%,#6d4930 100%);color:#fff;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 24px rgba(143,99,62,.24);transition:.25s;position:relative;overflow:hidden}
+.order-btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.18) 50%,transparent 75%);transform:translateX(120%);transition:.6s}
+.order-btn:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(143,99,62,.30)}
+.order-btn:hover:before{transform:translateX(-120%)}
+.order-btn .cta-icon{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.16);font-size:14px;flex:0 0 auto}
+.order-btn .cta-text{display:flex;flex-direction:column;line-height:1.25;text-align:right}
+.order-btn .cta-text b{font-size:13px}.order-btn .cta-text small{font-size:9px;font-weight:500;color:#f6e9dd;margin-top:2px}
+.icon-btn{border:1px solid var(--line);background:#fffdf9;border-radius:13px;cursor:pointer;transition:.2s}
+.icon-btn:hover{background:#171513;color:#fff;border-color:#171513}
 .empty{grid-column:1/-1;background:#fff;border:1px dashed #d9d4cf;border-radius:18px;padding:40px;text-align:center;color:var(--muted)}
 .showcase{background:linear-gradient(135deg,#171513,#31271f,#5a402e);color:#fff;border-radius:30px;padding:36px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.showcase h2{font-size:35px;margin:0 0 10px}.showcase p{margin:0;color:#cfcfcf;line-height:2}.showcase-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.showcase-list div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px;font-size:12px}
 .contact-card{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fffdf9;border:1px solid var(--line);border-radius:25px;padding:27px}.contact-card h2{margin:0 0 8px}.contact-card p{margin:0;color:var(--muted);line-height:1.9}.contact-actions{display:flex;gap:8px;flex-wrap:wrap}.contact-actions a{padding:11px 14px;border-radius:11px;font-weight:800;font-size:12px;background:linear-gradient(135deg,#171513,#4d392a);color:#fff}.contact-actions a.alt{background:#f2efeb;color:#111}
 footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
 .floating-wa{position:fixed;left:20px;bottom:20px;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;z-index:50;box-shadow:0 12px 28px rgba(0,0,0,.16);font-weight:800;font-size:11px}
 .mobilebar{display:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-card{width:min(1040px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:24px;display:grid;grid-template-columns:1.1fr .9fr;position:relative}.modal-img{background:#ece7e2;min-height:560px}.modal-img img{width:100%;height:100%;object-fit:contain}.modal-info{padding:31px}.modal-info h2{margin:8px 0}.modal-info p{color:var(--muted);line-height:1.9}.modal-specs{display:grid;gap:8px;margin:18px 0}.modal-specs div{background:#f6f3f0;padding:10px 12px;border-radius:11px;font-size:12px}.modal-actions{display:flex;gap:8px;flex-wrap:wrap}.modal-actions a,.modal-actions button{border:0;border-radius:11px;padding:11px 14px;font-weight:800;cursor:pointer}.modal-actions a{background:#111;color:#fff}.modal-actions button{background:#eeeae6}.close{position:absolute;top:12px;left:12px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;box-shadow:0 7px 20px rgba(0,0,0,.12);cursor:pointer;font-size:20px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-card{width:min(1040px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:24px;display:grid;grid-template-columns:1.1fr .9fr;position:relative}.modal-img{background:#ece7e2;min-height:560px}.modal-img img{width:100%;height:100%;object-fit:contain}.modal-info{padding:31px}.modal-info h2{margin:8px 0}.modal-info p{color:var(--muted);line-height:1.9}.modal-specs{display:grid;gap:8px;margin:18px 0}.modal-specs div{background:#f6f3f0;padding:10px 12px;border-radius:11px;font-size:12px}.modal-actions{display:flex;gap:8px;flex-wrap:wrap}.modal-actions a,.modal-actions button{border:0;border-radius:13px;padding:12px 16px;font-weight:800;cursor:pointer}
+.modal-actions a{background:linear-gradient(135deg,#8f633e,#b48456,#6d4930);color:#fff;box-shadow:0 12px 26px rgba(143,99,62,.24);display:inline-flex;align-items:center;gap:9px;min-height:48px}
+.modal-actions a:before{content:"◉";width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.16)}
+.modal-actions button{background:#eee6dc}.close{position:absolute;top:12px;left:12px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;box-shadow:0 7px 20px rgba(0,0,0,.12);cursor:pointer;font-size:20px}
 .toast{display:none;position:fixed;right:20px;bottom:20px;z-index:120;background:#111;color:#fff;padding:10px 14px;border-radius:11px;font-size:11px}
 
 @media(max-width:1050px){.global-search{display:none}.header-main{grid-template-columns:auto 1fr}.header-actions{justify-self:end}.hero-shell{grid-template-columns:1fr}.hero-media{min-height:420px}.category-grid{grid-template-columns:repeat(2,1fr)}.featured-strip,.gallery{grid-template-columns:repeat(2,1fr)}.showcase{grid-template-columns:1fr}.modal-card{grid-template-columns:1fr}.modal-img{min-height:370px}}
@@ -64,6 +76,41 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
 .category-grid .cat-card:nth-child(3n){background:linear-gradient(145deg,#f7f4ee,#dfe4d8)}
 .category-grid .cat-card:nth-child(3n) .cat-icon{background:linear-gradient(145deg,#364033,#68705a)}
 .category-grid .cat-card:nth-child(3n+2) .cat-icon{background:linear-gradient(145deg,#4a3526,#8f633e)}
+
+
+.image-count{position:absolute;right:12px;bottom:12px;background:rgba(23,21,19,.84);backdrop-filter:blur(8px);color:#fff;padding:6px 9px;border-radius:999px;font-size:10px;z-index:2}
+.modal-img{position:relative}
+.modal-main-wrap{position:relative;height:100%;min-height:560px;display:grid;place-items:center}
+.modal-main-wrap img{width:100%;height:100%;object-fit:contain}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 7px 22px rgba(0,0,0,.14);cursor:pointer;font-size:23px;display:none;place-items:center;z-index:3}
+.gallery-nav.show{display:grid}.gallery-prev{right:14px}.gallery-next{left:14px}
+.modal-thumbs{display:none;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:7px;padding:10px;background:#f0e7dd;border-top:1px solid var(--line)}
+.modal-thumbs.show{display:grid}
+.modal-thumb{height:66px;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#fff;cursor:pointer;padding:0}
+.modal-thumb.active{border-color:var(--accent)}
+.modal-thumb img{width:100%;height:100%;object-fit:cover}
+@media(max-width:1050px){.modal-main-wrap{min-height:370px}}
+@media(max-width:680px){.modal-main-wrap{min-height:280px}.gallery-nav{width:38px;height:38px}.modal-thumb{height:58px}}
+
+
+@media(max-width:680px){
+  .card-actions{grid-template-columns:1fr 42px 42px}
+  .order-btn{min-height:54px}
+  .order-btn .cta-text b{font-size:12px}
+  .order-btn .cta-text small{font-size:8px}
+}
+
+
+.product-media{position:relative}
+.product-slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease,transform .45s ease}
+.product-slide-img.active{opacity:1}
+.product-card:hover .product-slide-img.active{transform:scale(1.025)}
+.slide-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:3;background:rgba(23,21,19,.28);backdrop-filter:blur(6px);padding:5px 7px;border-radius:999px}
+.slide-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);transition:.25s}
+.slide-dot.active{width:18px;border-radius:999px;background:#fff}
+.image-count{bottom:48px}
+.hero-media img{transition:opacity .9s ease}
+.hero-media img.fade-out{opacity:.15}
 
 </style>
 </head>
@@ -80,7 +127,7 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
     <div class="header-actions">
       <a id="facebookTop" target="_blank" rel="noopener" title="فيسبوك" style="display:none">f</a>
       <a id="phoneTop" href="tel:01065342535" title="اتصال">☎</a>
-      <a id="headerWhats" class="order-top" target="_blank" rel="noopener">اطلب تصميمك</a>
+      <a id="headerWhats" class="order-top" target="_blank" rel="noopener">اطلب تصميمك الآن</a>
     </div>
   </div>
   <div class="navbar"><div class="container nav-inner"><a href="#">الرئيسية</a><a href="#categoriesSection">الأقسام</a><a href="#gallerySection">التصميمات</a><a href="#whyUs">لماذا نحن</a><a href="#contact">تواصل معنا</a></div></div>
@@ -94,7 +141,7 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
         <div class="hero-eyebrow">EL NEMER FURNITURE • CUSTOM MADE</div>
         <h1 id="heroTitle">أثاث يتصمم على ذوقك ويتنفذ على مقاس بيتك</h1>
         <p id="heroSubtitle">استعرض التصميمات واختار الفكرة المناسبة، ثم اطلب تنفيذها مباشرة من ورشة النمر.</p>
-        <div class="hero-actions"><a href="#gallerySection" class="hero-primary">استعرض التصميمات</a><a id="heroWhats" class="hero-secondary" target="_blank" rel="noopener">تواصل واتساب</a></div>
+        <div class="hero-actions"><a href="#gallerySection" class="hero-primary">استعرض التصميمات</a><a id="heroWhats" class="hero-secondary" target="_blank" rel="noopener">اطلب تصميمك الآن عبر واتساب</a></div>
       </div>
       <div class="hero-media" id="heroMedia"><div class="hero-empty">سيظهر هنا تصميم مميز تلقائياً بعد إضافته من لوحة الأدمن.</div><div class="hero-overlay" id="heroOverlay"><b id="heroDesignTitle"></b><span>اضغط لعرض التفاصيل</span></div></div>
     </div>
@@ -154,17 +201,24 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
 
 <footer><div class="container"><span id="footerText">ورشة النمر للأثاث المنزلي - جميع الحقوق محفوظة</span> © <span id="year"></span></div></footer>
 <a id="floatingWhats" class="floating-wa" target="_blank" rel="noopener">واتساب</a>
-<nav class="mobilebar"><a href="#"><b>⌂</b>الرئيسية</a><a href="#categoriesSection"><b>▦</b>الأقسام</a><a href="#gallerySection"><b>◫</b>التصميمات</a><a id="mobileWhats" target="_blank" rel="noopener"><b>◉</b>واتساب</a></nav>
+<nav class="mobilebar"><a href="#"><b>⌂</b>الرئيسية</a><a href="#categoriesSection"><b>▦</b>الأقسام</a><a href="#gallerySection"><b>◫</b>التصميمات</a><a id="mobileWhats" target="_blank" rel="noopener"><b>◉</b>اطلب الآن</a></nav>
 
 <div class="modal" id="designModal">
   <div class="modal-card">
     <button class="close" id="modalClose">×</button>
-    <div class="modal-img"><img id="modalImage" alt=""></div>
+    <div class="modal-img">
+      <div class="modal-main-wrap">
+        <img id="modalImage" alt="">
+        <button id="galleryPrev" class="gallery-nav gallery-prev" type="button" aria-label="الصورة السابقة">‹</button>
+        <button id="galleryNext" class="gallery-nav gallery-next" type="button" aria-label="الصورة التالية">›</button>
+      </div>
+      <div id="modalThumbs" class="modal-thumbs"></div>
+    </div>
     <div class="modal-info">
       <span id="modalCategory" class="badge" style="position:static;display:inline-block"></span>
       <h2 id="modalTitle"></h2><p id="modalDescription"></p>
       <div id="modalSpecs" class="modal-specs"></div>
-      <div class="modal-actions"><a id="modalOrder" target="_blank" rel="noopener">اطلب هذا التصميم</a><button id="modalShare">مشاركة</button></div>
+      <div class="modal-actions"><a id="modalOrder" target="_blank" rel="noopener">اطلب هذا التصميم الآن</a><button id="modalShare">مشاركة</button></div>
     </div>
   </div>
 </div>
@@ -183,7 +237,7 @@ const firebaseConfig = {
 };
 const app=initializeApp(firebaseConfig),db=getDatabase(app);
 const $=id=>document.getElementById(id);
-let categories={},designs={},settings={},activeCategory="all",query="",sortBy="newest",currentModalId="";
+let categories={},designs={},settings={},activeCategory="all",query="",sortBy="newest",currentModalId="",currentImages=[],currentImageIndex=0;let cardSlideTimers=[];let heroSlideTimer=null;
 let favorites=new Set(JSON.parse(localStorage.getItem("elnemer_favorites")||"[]"));
 $("year").textContent=new Date().getFullYear();
 
@@ -194,6 +248,51 @@ const waLink=(title="")=>{
 };
 const toast=msg=>{$("toast").textContent=msg;$("toast").style.display="block";clearTimeout(window.__t);window.__t=setTimeout(()=>$("toast").style.display="none",2200)};
 function saveFavs(){localStorage.setItem("elnemer_favorites",JSON.stringify([...favorites]))}
+
+function designImages(d){
+  if(Array.isArray(d?.images) && d.images.length) return d.images.filter(Boolean);
+  if(d?.images && typeof d.images==="object") return Object.values(d.images).filter(Boolean);
+  return d?.image ? [d.image] : [];
+}
+
+function clearCardSlides(){
+  cardSlideTimers.forEach(t=>clearInterval(t));
+  cardSlideTimers=[];
+}
+function setupCardSlideshow(media,images){
+  if(images.length<=1) return;
+  const imgs=[...media.querySelectorAll(".product-slide-img")];
+  const dots=[...media.querySelectorAll(".slide-dot")];
+  let index=0;
+  const show=i=>{
+    index=(i+imgs.length)%imgs.length;
+    imgs.forEach((img,n)=>img.classList.toggle("active",n===index));
+    dots.forEach((dot,n)=>dot.classList.toggle("active",n===index));
+  };
+  const timer=setInterval(()=>show(index+1),3200);
+  cardSlideTimers.push(timer);
+  media.addEventListener("mouseenter",()=>clearInterval(timer),{once:true});
+}
+
+function setModalImage(index){
+  if(!currentImages.length) return;
+  currentImageIndex=(index+currentImages.length)%currentImages.length;
+  $("modalImage").src=currentImages[currentImageIndex];
+  document.querySelectorAll(".modal-thumb").forEach((b,i)=>b.classList.toggle("active",i===currentImageIndex));
+}
+function renderModalThumbs(){
+  const wrap=$("modalThumbs");
+  wrap.innerHTML="";
+  const multi=currentImages.length>1;
+  wrap.classList.toggle("show",multi);
+  $("galleryPrev").classList.toggle("show",multi);
+  $("galleryNext").classList.toggle("show",multi);
+  currentImages.forEach((src,i)=>{
+    const b=document.createElement("button");b.type="button";b.className="modal-thumb"+(i===0?" active":"");
+    const img=document.createElement("img");img.src=src;img.alt=`صورة ${i+1}`;b.appendChild(img);b.onclick=()=>setModalImage(i);wrap.appendChild(b);
+  });
+}
+
 
 function applySettings(){
   const name=settings.siteName||"ورشة النمر للأثاث المنزلي",address=settings.address||"أسيوط - منفلوط - بني عدي البحرية",phone=settings.phone||"01065342535";
@@ -247,21 +346,80 @@ function filtered(){
 }
 function makeCard(id,d){
   const card=document.createElement("article");card.className="product-card";
-  const media=document.createElement("div");media.className="product-media";const img=document.createElement("img");img.src=d.image||"";img.alt=d.title||"تصميم";img.loading="lazy";img.onerror=()=>{img.onerror=null;img.src="https://placehold.co/900x700?text=El+Nemer"};
-  const badge=document.createElement("span");badge.className="badge";badge.textContent=categories[d.categoryId]?.name||"تصميم";media.append(img,badge);
+  const images=designImages(d);const media=document.createElement("div");media.className="product-media";
+  images.forEach((src,i)=>{
+    const img=document.createElement("img");
+    img.src=src||"";
+    img.alt=`${d.title||"تصميم"} - صورة ${i+1}`;
+    img.loading="lazy";
+    img.className="product-slide-img"+(i===0?" active":"");
+    img.onerror=()=>{img.onerror=null;img.src="https://placehold.co/900x700?text=El+Nemer"};
+    media.appendChild(img);
+  });
+  const badge=document.createElement("span");badge.className="badge";badge.textContent=categories[d.categoryId]?.name||"تصميم";media.appendChild(badge);
+  if(images.length>1){
+    const count=document.createElement("span");count.className="image-count";count.textContent=`▧ ${images.length} صور`;media.appendChild(count);
+    const dots=document.createElement("div");dots.className="slide-dots";
+    images.forEach((_,i)=>{const dot=document.createElement("span");dot.className="slide-dot"+(i===0?" active":"");dots.appendChild(dot)});
+    media.appendChild(dots);
+  }
   if(d.featured){const f=document.createElement("span");f.className="featured-badge";f.textContent="مميز";media.appendChild(f)}
   const fav=document.createElement("button");fav.className="fav-btn"+(favorites.has(id)?" on":"");fav.textContent=favorites.has(id)?"♥":"♡";fav.onclick=e=>{e.stopPropagation();favorites.has(id)?favorites.delete(id):favorites.add(id);saveFavs();renderAll()};media.appendChild(fav);media.onclick=()=>openModal(id);
   const info=document.createElement("div");info.className="product-info";const row=document.createElement("div");row.className="product-title-row";const h=document.createElement("h3");h.textContent=d.title||"تصميم مميز";const price=document.createElement("div");price.className="price";price.textContent=d.price||"حسب الطلب";row.append(h,price);
   const p=document.createElement("p");p.textContent=d.description||"يمكن تنفيذ التصميم حسب المقاسات والتفاصيل المطلوبة.";
   const specs=document.createElement("div");specs.className="specs";if(d.material){const s=document.createElement("span");s.textContent=d.material;specs.appendChild(s)}if(d.dimensions){const s=document.createElement("span");s.textContent=d.dimensions;specs.appendChild(s)}
-  const actions=document.createElement("div");actions.className="card-actions";const order=document.createElement("a");order.className="order-btn";order.href=waLink(d.title||"");order.target="_blank";order.rel="noopener";order.textContent="اطلب تصميمك";const details=document.createElement("button");details.className="icon-btn";details.textContent="⌕";details.onclick=()=>openModal(id);const share=document.createElement("button");share.className="icon-btn";share.textContent="↗";share.onclick=()=>shareDesign(id);actions.append(order,details,share);
-  info.append(row,p,specs,actions);card.append(media,info);return card
+  const actions=document.createElement("div");actions.className="card-actions";const order=document.createElement("a");order.className="order-btn";order.href=waLink(d.title||"");order.target="_blank";order.rel="noopener";order.innerHTML=`<span class="cta-icon">◉</span><span class="cta-text"><b>اطلب تصميمك الآن</b><small>تواصل مباشر عبر واتساب</small></span>`;const details=document.createElement("button");details.className="icon-btn";details.textContent="⌕";details.onclick=()=>openModal(id);const share=document.createElement("button");share.className="icon-btn";share.textContent="↗";share.onclick=()=>shareDesign(id);actions.append(order,details,share);
+  info.append(row,p,specs,actions);card.append(media,info);setupCardSlideshow(media,images);return card
 }
-function renderGallery(){const arr=filtered();$("gallery").innerHTML="";$("resultCount").textContent=`${arr.length} تصميم`;if(!arr.length){$("gallery").innerHTML=`<div class="empty">لا توجد تصميمات مطابقة حالياً.</div>`;return}arr.forEach(([id,d])=>$("gallery").appendChild(makeCard(id,d)))}
+function renderGallery(){clearCardSlides();const arr=filtered();$("gallery").innerHTML="";$("resultCount").textContent=`${arr.length} تصميم`;if(!arr.length){$("gallery").innerHTML=`<div class="empty">لا توجد تصميمات مطابقة حالياً.</div>`;return}arr.forEach(([id,d])=>$("gallery").appendChild(makeCard(id,d)))}
 function renderFeatured(){const arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false&&d.featured).sort((a,b)=>(b[1].updatedAt||0)-(a[1].updatedAt||0)).slice(0,3);$("featuredGrid").innerHTML="";$("featuredSection").style.display=arr.length?"block":"none";arr.forEach(([id,d])=>$("featuredGrid").appendChild(makeCard(id,d)))}
-function renderHero(){const arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false);if(!arr.length)return;const pick=arr.find(([,d])=>d.featured)||arr.sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0))[0];const [id,d]=pick;$("heroMedia").querySelector(".hero-empty")?.remove();let img=$("heroMedia").querySelector("img");if(!img){img=document.createElement("img");$("heroMedia").prepend(img)}img.src=d.image||"";img.alt=d.title||"تصميم";$("heroOverlay").style.display="block";$("heroDesignTitle").textContent=d.title||"تصميم مميز";$("heroMedia").style.cursor="pointer";$("heroMedia").onclick=()=>openModal(id)}
+function renderHero(){
+  if(heroSlideTimer){clearInterval(heroSlideTimer);heroSlideTimer=null}
+  const arr=Object.entries(designs).filter(([,d])=>d&&d.active!==false);
+  if(!arr.length)return;
+  const pick=arr.find(([,d])=>d.featured)||arr.sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0))[0];
+  const [id,d]=pick;
+  const images=designImages(d);
+  $("heroMedia").querySelector(".hero-empty")?.remove();
+  let img=$("heroMedia").querySelector("img");
+  if(!img){img=document.createElement("img");$("heroMedia").prepend(img)}
+  let idx=0;
+  const show=()=>{
+    img.classList.add("fade-out");
+    setTimeout(()=>{
+      img.src=images[idx]||"";
+      img.alt=`${d.title||"تصميم"} - صورة ${idx+1}`;
+      img.classList.remove("fade-out");
+    },260);
+  };
+  show();
+  if(images.length>1){
+    heroSlideTimer=setInterval(()=>{idx=(idx+1)%images.length;show()},4200);
+  }
+  $("heroOverlay").style.display="block";
+  $("heroDesignTitle").textContent=d.title||"تصميم مميز";
+  $("heroMedia").style.cursor="pointer";
+  $("heroMedia").onclick=()=>openModal(id)
+}
 function renderAll(){renderCategories();renderTabs();renderGallery();renderFeatured();renderHero()}
-function openModal(id){const d=designs[id];if(!d)return;currentModalId=id;$("modalImage").src=d.image||"";$("modalTitle").textContent=d.title||"تصميم";$("modalCategory").textContent=categories[d.categoryId]?.name||"تصميم";$("modalDescription").textContent=d.description||"يمكن تنفيذ التصميم حسب الطلب.";$("modalSpecs").innerHTML="";[["الخامة",d.material],["المقاس",d.dimensions],["السعر",d.price||"حسب الطلب"]].forEach(([k,v])=>{if(v){const x=document.createElement("div");x.textContent=`${k}: ${v}`;$("modalSpecs").appendChild(x)}});$("modalOrder").href=waLink(d.title||"");$("designModal").classList.add("show");document.body.classList.add("modal-open")}
+function openModal(id){
+  const d=designs[id];if(!d)return;
+  currentModalId=id;
+  currentImages=designImages(d);
+  currentImageIndex=0;
+  $("modalImage").src=currentImages[0]||"";
+  renderModalThumbs();
+  $("modalTitle").textContent=d.title||"تصميم";
+  $("modalCategory").textContent=categories[d.categoryId]?.name||"تصميم";
+  $("modalDescription").textContent=d.description||"يمكن تنفيذ التصميم حسب الطلب.";
+  $("modalSpecs").innerHTML="";
+  [["الخامة",d.material],["المقاس",d.dimensions],["السعر",d.price||"حسب الطلب"],["عدد الصور",currentImages.length>1?`${currentImages.length} صور`:""]].forEach(([k,v])=>{
+    if(v){const x=document.createElement("div");x.textContent=`${k}: ${v}`;$("modalSpecs").appendChild(x)}
+  });
+  $("modalOrder").href=waLink(d.title||"");
+  $("designModal").classList.add("show");
+  document.body.classList.add("modal-open")
+}
 function closeModal(){$("designModal").classList.remove("show");document.body.classList.remove("modal-open")}
 async function shareDesign(id){const d=designs[id];if(!d)return;const text=`${d.title||"تصميم"} - ${settings.siteName||"ورشة النمر للأثاث المنزلي"}`;try{if(navigator.share)await navigator.share({title:text,text});else{await navigator.clipboard.writeText(text);toast("تم نسخ اسم التصميم")}}catch(e){}}
 $("tabs").onclick=e=>{const b=e.target.closest("[data-cat]");if(!b)return;activeCategory=b.dataset.cat;renderAll()}
@@ -269,7 +427,7 @@ $("categoryGrid").onclick=e=>{const b=e.target.closest("[data-category-jump]");i
 $("searchInput").oninput=e=>{query=e.target.value.trim();$("globalSearch").value=query;renderGallery()}
 $("globalSearch").oninput=e=>{query=e.target.value.trim();$("searchInput").value=query;renderGallery();if(query)document.querySelector("#gallerySection").scrollIntoView({behavior:"smooth"})}
 $("sortSelect").onchange=e=>{sortBy=e.target.value;renderGallery()}
-$("modalClose").onclick=closeModal;$("designModal").onclick=e=>{if(e.target===$("designModal"))closeModal()};$("modalShare").onclick=()=>shareDesign(currentModalId);document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()})
+$("galleryPrev").onclick=()=>setModalImage(currentImageIndex-1);$("galleryNext").onclick=()=>setModalImage(currentImageIndex+1);$("modalClose").onclick=closeModal;$("designModal").onclick=e=>{if(e.target===$("designModal"))closeModal()};$("modalShare").onclick=()=>shareDesign(currentModalId);document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()})
 onValue(ref(db,"categories"),s=>{categories=s.val()||{};renderAll()},e=>console.error(e));onValue(ref(db,"designs"),s=>{designs=s.val()||{};renderAll()},e=>{$("gallery").innerHTML=`<div class="empty">تعذر تحميل التصميمات. راجع Firebase.</div>`;console.error(e)});onValue(ref(db,"settings"),s=>{settings=s.val()||{};applySettings()},e=>console.error(e));applySettings();
 </script>
 </body></html>
