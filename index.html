@@ -387,6 +387,24 @@ body.store-loading{overflow:hidden}
   }
 }
 
+
+.design-code-badge{
+  position:absolute;
+  top:48px;
+  right:12px;
+  z-index:4;
+  background:rgba(23,21,19,.88);
+  color:#f4d59c;
+  border:1px solid rgba(244,213,156,.42);
+  border-radius:999px;
+  padding:5px 9px;
+  font-family:monospace;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.4px;
+  direction:ltr;
+}
+
 </style>
 <link rel="icon" type="image/png" href="elnemer-logo.png">
 </head>
@@ -553,9 +571,10 @@ let favorites=new Set(JSON.parse(localStorage.getItem("elnemer_favorites")||"[]"
 $("year").textContent=new Date().getFullYear();
 
 const waNumber=()=>String(settings.whatsapp||"201065342535").replace(/\D/g,"");
-const waLink=(title="")=>{
+const waLink=(title="",code="")=>{
   const base=settings.defaultMessage||"مرحباً، أريد طلب تصميم أثاث من ورشة النمر";
-  return `https://wa.me/${waNumber()}?text=${encodeURIComponent(title?`${base}\n\nالتصميم: ${title}`:base)}`
+  const details=title?`${base}\n\nالتصميم: ${title}${code?`\nكود التصميم: ${code}`:""}`:base;
+  return `https://wa.me/${waNumber()}?text=${encodeURIComponent(details)}`
 };
 function toast(msg){
   $("toast").textContent=msg;$("toast").classList.add("show");
@@ -742,6 +761,13 @@ function makeCard(id,d){
   badge.textContent=categories[d.categoryId]?.name||"تصميم";
   media.appendChild(badge);
 
+  if(d.code){
+    const codeBadge=document.createElement("span");
+    codeBadge.className="design-code-badge";
+    codeBadge.textContent=d.code;
+    media.appendChild(codeBadge);
+  }
+
   if(count>1){
     const c=document.createElement("span");
     c.className="image-count";
@@ -792,7 +818,7 @@ function makeCard(id,d){
 
   const actions=document.createElement("div");actions.className="card-actions";
   const order=document.createElement("a");
-  order.className="order-btn";order.href=waLink(d.title||"");order.target="_blank";order.rel="noopener";
+  order.className="order-btn";order.href=waLink(d.title||"",d.code||"");order.target="_blank";order.rel="noopener";
   order.innerHTML=`<span class="cta-icon">◉</span><span class="cta-text"><b>اطلب تصميمك الآن</b><small>تواصل مباشر عبر واتساب</small></span>`;
   const details=document.createElement("button");details.className="icon-btn";details.textContent="⌕";details.onclick=()=>openModal(id);
   const share=document.createElement("button");share.className="icon-btn";share.textContent="↗";share.onclick=()=>shareDesign(id);
@@ -910,12 +936,12 @@ async function openModal(id){
   $("modalDescription").textContent=d.description||"يمكن تنفيذ التصميم حسب الطلب.";
   $("modalSpecs").innerHTML="";
 
-  [["الخامة",d.material],["المقاس",d.dimensions],["السعر",d.price||"حسب الطلب"],
+  [["كود التصميم",d.code],["الخامة",d.material],["المقاس",d.dimensions],["السعر",d.price||"حسب الطلب"],
    ["عدد الصور",imageCount(d)>1?`${imageCount(d)} صور`:""]].forEach(([k,v])=>{
     if(v){const x=document.createElement("div");x.textContent=`${k}: ${v}`;$("modalSpecs").appendChild(x)}
   });
 
-  $("modalOrder").href=waLink(d.title||"");
+  $("modalOrder").href=waLink(d.title||"",d.code||"");
   currentImages=await getAllDesignImages(id,d);
   currentImageIndex=0;
   $("modalImage").src=currentImages[0]||"";
@@ -927,7 +953,7 @@ function closeModal(){
 }
 async function shareDesign(id){
   const d=designs[id];if(!d)return;
-  const text=`${d.title||"تصميم"} - ${settings.siteName||"ورشة النمر للأثاث المنزلي"}`;
+  const text=`${d.title||"تصميم"}${d.code?` (${d.code})`:""} - ${settings.siteName||"ورشة النمر للأثاث المنزلي"}`;
   try{
     if(navigator.share)await navigator.share({title:text,text});
     else{await navigator.clipboard.writeText(text);toast("تم نسخ اسم التصميم")}
